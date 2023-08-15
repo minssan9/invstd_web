@@ -1,35 +1,35 @@
-# Spring Boot 3+ MongoDB + Vue JS 3 CRUD: Full stack development example
+# investand_web
 
-# After completing this tutorial what we will build? 
-We will build a full-stack web application that is a basic User Management Application with CRUD features: 
+This template should help get you started developing with Vue 3 in Vite.
 
-• Create User 
+## Recommended IDE Setup
 
-• List User 
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-• Update User 
+## Customize configuration
 
-• Delete User 
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-• View User
+## Project Setup
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXc6ilKrUyLt1LUPoRQlOavHyyB2Ex_W5UlXGg1JuKiEkAT9Ewx3MBcISnj3t-5qJuAbga1NBcDTXJUA6Pxbq9MOseJuvrR5U4OLtTLLThjaCBZSoJIFM0YnZVeQK3ElBH8u7NNWPTCPGenZLXIDtTFpChZUodu54PBT65zlm-nM6IbYU6Qx2eQXaPKg/s1086/listuser.png">
+```sh
+npm install
+```
 
+### Compile and Hot-Reload for Development
 
-# Local Setup and Run the application
+```sh
+npm run dev
+```
 
-Step 1: Download or clone the source code from GitHub to the local machine
+### Compile and Minify for Production
 
-# Backend
+```sh
+npm run build
+```
 
-Step 2:  ```mvn clean install```
+### Lint with [ESLint](https://eslint.org/)
 
-Step 3:  ```mvn spring-boot:run```
-
-# Frontend
-
-Step 4:  ```npm install```
-
-Step 5:  ```npm run serve -- --port 8082```
-
-# From the browser call the endpoint http://localhost:8082/.
+```sh
+npm run lint
+```
