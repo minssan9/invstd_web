@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode development",
+    "dev:prd": "vite --mode production",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "build:stage": "vite build --mode staging",
@@ -17,10 +18,10 @@
     "ag-grid-vue3": "^29.2.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
-    "dotenv": "^16.3.1",
     "pinia": "^2.1.4",
     "vue": "^3.3.4",
     "vue-cookies": "^1.8.3",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.2.4",
     "vuetify": "^3.0.0",
     "vuetify-dialog": "^2.0.17"

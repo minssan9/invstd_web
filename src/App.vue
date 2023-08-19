@@ -10,15 +10,52 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
+      {{ $t("example") }}
+      <br>
+      {{ web }}
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
+
   </header>
 
-  <RouterView />
+  <v-app>
+    <v-row>
+      <v-btn @click="setLanguage('ko')">Ko</v-btn>
+      <v-btn @click="setLanguage('en')">En</v-btn>
+    </v-row>
+    <RouterView />
+  </v-app>
 </template>
+
+<script>
+import {mapActions, mapState } from 'pinia';
+import {appStore} from "./stores/appStore";
+import {useLangStore} from "./stores/langStore";
+
+
+export default {
+  name: 'AppVue',
+  data() {
+    return {
+      web: import.meta.env.VITE_APP_WEB,
+      username: '',
+    }
+  },
+  computed: {
+    // ...mapState(appStore)
+  },
+  methods:{
+    // ...mapActions(appStore),
+    setLanguage(type){
+      const langStore = useLangStore()
+      langStore.setLangType(type)
+    }
+  }
+}
+</script>
 
 <style scoped>
 header {
