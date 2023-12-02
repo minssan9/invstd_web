@@ -1,4 +1,4 @@
-import {methods} from '@/api/axios-en9door'
+import {methods} from './api/axios-en9door'
 
 // let fetchQuery = {role: '', username: '', size: 0, page: 1, sort: 'createdAt'}
 

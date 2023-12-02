@@ -1,4 +1,4 @@
-import {methods} from '@/api/axios-en9door'
+import {methods} from './api/axios-en9door'
 
 const baseUrl = `board`
 

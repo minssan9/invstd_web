@@ -1,4 +1,4 @@
-import {methods} from '@/api/axios-en9door'
+import {methods} from './api/axios-en9door'
 import Cookies from 'vue-cookies'
 
 const REDIRECT_URI = `${process.env.VITE_APP_REDIRECT_URL}/oauth/redirect`

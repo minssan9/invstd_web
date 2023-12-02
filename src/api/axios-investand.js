@@ -1,17 +1,15 @@
 import { createApp } from 'vue'
 import axios from 'axios'
-import store from '@/piana/index'
-import router from "@/router";
+import store from './store'
+import router from "./router";
 import Cookies from "vue-cookies";
-
-
 
 const app = createApp()
 app.config.globalProperties.$APIURL = import.meta.env.VITE_APP_API
 
 // create an axios instance
 const service = axios.create({
-  baseURL: app.config.globalProperties.$APIURL, // url = base url + request url
+  baseURL: import.meta.env.VITE_APP_API, // url = base url + request url
 
   withCredentials: true, // send cookies when cross-domain requests
   timeout: 10000, // 10초
@@ -113,10 +111,10 @@ function errLogic(err) {
         router.go();
       })
   }
-  else if (err.response.status == Forbidden) return apiError.onForbidden(err)
-  else if (err.response.status == BadRequest) return apiError.onBadRequest(err)
-  else if (err.response.status == NotFound) return apiError.onNotFound(err)
-  else if (err.response.status == ServerError) return apiError.onServerError(err)
+  else if (err.response.status === Forbidden) return apiError.onForbidden(err)
+  else if (err.response.status === BadRequest) return apiError.onBadRequest(err)
+  else if (err.response.status === NotFound) return apiError.onNotFound(err)
+  else if (err.response.status === ServerError) return apiError.onServerError(err)
   return Promise.reject(err)
 }
 
@@ -143,38 +141,38 @@ const apiError = {
   },
 }
 
-export const methods = {
-  post: (url, data) => {
-    return service.post(url, data)
-      .then(result => result)
-      .catch(err =>  errLogic(err))
-  },
-  get: (url, params) => {
-    return service.get(url, {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json; charset = utf-8'
-      }, params: params
-    })
-      .then(result => result)
-      .catch(err => errLogic(err));
-  },
-  put: (url, data) => {
-    return service.put(url, data)
-      .then(result => result)
-      .catch(err => errLogic(err));
-  },
-  delete: (url) => {
-    return service.delete(url)
-      .then(result => result)
-      .catch(err => errLogic(err));
-  }
-}
+// export const methods = {
+  // post: (url, data) => {
+  //   return service.post(url, data)
+  //     .then(result => result)
+  //     .catch(err =>  errLogic(err))
+  // },
+  // get: (url, params) => {
+  //   return service.get(url, {
+  //     headers: {
+  //       'Access-Control-Allow-Origin': '*',
+  //       'Content-Type': 'application/json; charset = utf-8'
+  //     }, params: params
+  //   })
+  //     .then(result => result)
+  //     .catch(err => errLogic(err));
+  // },
+  // put: (url, data) => {
+  //   return service.put(url, data)
+  //     .then(result => result)
+  //     .catch(err => errLogic(err));
+  // },
+  // delete: (url) => {
+  //   return service.delete(url)
+  //     .then(result => result)
+  //     .catch(err => errLogic(err));
+  // }
+// }
 export default service
 
 
 app.config.globalProperties.$requestMethod = request
 app.config.globalProperties.$requestFileMethod = requestFile
-app.config.globalProperties.$postMethod = methods.post
-app.config.globalProperties.$getMethod = methods.get
-app.config.globalProperties.$putMethod = methods.put
+// app.config.globalProperties.$postMethod = methods.post
+// app.config.globalProperties.$getMethod = methods.get
+// app.config.globalProperties.$putMethod = methods.put

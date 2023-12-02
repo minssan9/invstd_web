@@ -4,5 +4,9 @@
     "ttl_1": "ttl1",
     "ttl_2": "ttl_2",
     "ttl_3": "ttl_3"
+  },
+  "message": {
+    "hello": "Hello. {user} Sir.",
+    "bye": "Good Bye. {0}님."
   }
 }

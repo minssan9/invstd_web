@@ -5,9 +5,11 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
+      <p>{{ $t('message.hello', { user: '사용자' }) }}</p>
+
       <HelloWorld msg="You did it!" />
 
       {{ $t("example") }}
@@ -18,23 +20,21 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-
+    <p>{{$t('message.bye', ['펭수'])}}</p>
   </header>
 
   <v-app>
     <v-row>
-      <v-btn @click="setLanguage('ko')">Ko</v-btn>
-      <v-btn @click="setLanguage('en')">En</v-btn>
+      <v-btn @click="changeLanguage('ko')">Ko</v-btn>
+      <v-btn @click="changeLanguage('en')">En</v-btn>
     </v-row>
+
     <RouterView />
   </v-app>
 </template>
 
 <script>
-import {mapActions, mapState } from 'pinia';
-import {appStore} from "./stores/appStore";
-import {useLangStore} from "./stores/langStore";
-
+import {useAppStore} from "./pinia/appStore";
 
 export default {
   name: 'AppVue',
@@ -47,11 +47,20 @@ export default {
   computed: {
     // ...mapState(appStore)
   },
+  created() {
+    let langType = navigator.language
+    langType = langType.substring(0, 2)
+    if (langType !== 'ko') langType = 'en' // 한국어가 아닌 경우 무조건 영어로 설정
+
+    this.changeLanguage(langType)
+  },
   methods:{
     // ...mapActions(appStore),
-    setLanguage(type){
-      const langStore = useLangStore()
-      langStore.setLangType(type)
+    changeLanguage(langType){
+      const app = useAppStore()
+      app.setLangType(langType)
+      this.$i18n.locale = langType
+
     }
   }
 }

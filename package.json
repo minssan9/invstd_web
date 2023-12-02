@@ -18,6 +18,7 @@
     "ag-grid-vue3": "^29.2.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.4.0",
     "pinia": "^2.1.4",
     "vue": "^3.3.4",
     "vue-cookies": "^1.8.3",
@@ -33,6 +34,7 @@
     "eslint": "^8.45.0",
     "eslint-plugin-vue": "^9.15.1",
     "prettier": "^3.0.0",
+    "sass": "^1.66.1",
     "vite": "^4.4.9",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
     "vue-cli-plugin-vuetify": "~2.5.8"

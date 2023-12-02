@@ -6,5 +6,7 @@ import TheWelcome from '../components/TheWelcome.vue'
 <template>
   <main>
     <TheWelcome />
+    <RouterView></RouterView>
+
   </main>
 </template>

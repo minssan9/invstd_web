@@ -1,25 +1,14 @@
-import { fileURLToPath, URL } from 'node:url'
+import path from "path";
 
 import { defineConfig  } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
-
 // https://vitejs.dev/config/
 export default  defineConfig({
-
-  // if (process.env.NODE_ENV === 'production') {
-  //   dotenv.config({ path: path.join(__dirname, 'env/.env.production') })
-  // } else if (process.env.NODE_ENV === 'develop') {
-  //   dotenv.config({ path: path.join(__dirname, 'env/.env.development') })
-  // } else {
-  //   throw new Error('process.env.NODE_ENV를 설정하지 않았습니다!')
-  // }
-
-
   build: {
     // Use the VITE_API_BASE_URL environment variable in your build config
-    base: import.meta.env.VITE_APP_API,
+    // base: import.meta.env.VITE_APP_API,
   },
   envDir: "./env",
   plugins: [
@@ -32,9 +21,12 @@ export default  defineConfig({
     }),
   ],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "src") },
+      // {
+      //   '@': fileURLToPath(new URL('./src', import.meta.url))
+      // }
+    ],
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
   },
   server: {
@@ -55,7 +47,7 @@ export default  defineConfig({
     proxy: {
       '/api': {
         // target: import.meta.env.VITE_APP_API,
-        target: 'localhost:24001',
+        target: 'investand.com:24001',
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, ''),
         secure: false,

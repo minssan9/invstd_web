@@ -1,13 +1,13 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const appStore = defineStore('app',{
+
+export const useAppStore = defineStore('app',{
   state: () => ({
     langType: 'ko',
     id: 0,
   }),
   getters: {
-    getlangType: (state) => state.langType
+    currentLangType: (state) => state.langType
   },
   actions: {
     setLangType(langType) {

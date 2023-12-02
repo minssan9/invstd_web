@@ -1,11 +1,15 @@
-import { createApp } from 'vue'
-const app = createApp()
-
-const baseUrl = `${app.config.globalProperties.$APIURL}/pdf`
+import { Vue } from 'vue'
+const baseUrl = `${Vue.config.globalProperties.$APIURL}/pdf`
 
 const apiPdf = {
   getAttendSheetPopup(assignId) {
-    return window.open(`${baseUrl}/assign/${assignId}/attendance` )
+    Vue.prototype.$getMethod(`${baseUrl}/assign/${assignId}/sheet`, {} )
+        .then(html => {
+          const newWindow = window.open();
+          newWindow.document.open();
+          newWindow.document.write(html);
+          newWindow.document.close();
+        })
   }
 }
 
