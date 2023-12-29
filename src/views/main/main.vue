@@ -20,7 +20,7 @@
         </v-col>
         <v-col cols="12" sm="6">
           <v-card-title class="justify-center mx-3 ">
-            <img class="w-75" src="https://cdn.en9doors.com/design/img_banner2.png">
+            <img class="w-75" src="https://cdn.investand.com/design/img_banner2.png">
           </v-card-title>
         </v-col>
       </v-row>
@@ -37,7 +37,7 @@
           <v-card flat rounded outlined shaped height="150px" elevation="5"
                   class="text-white"
                   to="/main/class-info"
-                  img="https://cdn.en9doors.com/design/img_sec01_card01.png" >
+                  img="https://cdn.investand.com/design/img_sec01_card01.png" >
               <v-card-subtitle class="text-white">
                 화상, 음성이 동일한 가격이며<br>
                 영수증과 출석증을 발급해드려요.
@@ -51,7 +51,7 @@
           <v-card flat rounded outlined shaped height="150px" elevation="5"
                   class="text-white"
                   to="/main/teacher"
-                  img="https://cdn.en9doors.com/design/img_sec01_card02.png" >
+                  img="https://cdn.investand.com/design/img_sec01_card02.png" >
               <v-card-subtitle class="text-white">
                 전문 교육과정을 수료한 선생님들을<br>
                 지정 받아 고정된 시간에 수업을 받을 수 있어요.
@@ -65,7 +65,7 @@
           <v-card flat rounded outlined shaped height="150px" elevation="5"
                   class="text-white"
                   to="/main/content"
-                  img="https://cdn.en9doors.com/design/img_sec01_card03.png" >
+                  img="https://cdn.investand.com/design/img_sec01_card03.png" >
               <v-card-subtitle class="text-white">
                 유아부터 성인까지 단계별 맞춤과<br>
                 폭넓은 주제, 컨텐츠로 교정을 받을 수 있어요.
@@ -89,7 +89,7 @@
                :ref="'scroll_section_2'">
           <v-col v-if="isMobile" cols="12" sm="6" >
             <v-card-title class="justify-center mx-3 ">
-              <img class="w-50" src="https://cdn.en9doors.com/design/img_sec02_price2.png">
+              <img class="w-50" src="https://cdn.investand.com/design/img_sec02_price2.png">
             </v-card-title>
           </v-col>
           <v-col cols="12" sm="6"
@@ -111,7 +111,7 @@
           </v-col>
           <v-col v-if="!isMobile" cols="12" sm="6" >
             <v-card-title class="justify-center mx-3 ">
-              <img class="w-50" src="https://cdn.en9doors.com/design/img_sec02_price2.png">
+              <img class="w-50" src="https://cdn.investand.com/design/img_sec02_price2.png">
             </v-card-title>
           </v-col>
         </v-row>
@@ -122,7 +122,7 @@
                :ref="'scroll_section_3'">
           <v-col cols="12" sm="6">
             <v-card-title class="justify-center mx-3 ">
-              <img class="w-50"  src="https://cdn.en9doors.com/design/img_sec02_easy2.png">
+              <img class="w-50"  src="https://cdn.investand.com/design/img_sec02_easy2.png">
             </v-card-title>
           </v-col>
           <v-col cols="12" sm="6">
@@ -148,7 +148,7 @@
                :ref="'scroll_section_4'">
           <v-col v-if="isMobile" cols="12" sm="6">
             <v-card-title class="justify-center mx-3 ">
-              <img class="w-50"  src="https://cdn.en9doors.com/design/img_sec02_custom2.png">
+              <img class="w-50"  src="https://cdn.investand.com/design/img_sec02_custom2.png">
             </v-card-title>
           </v-col>
           <v-col cols="12" sm="6">
@@ -165,7 +165,7 @@
           </v-col>
           <v-col  v-if="!isMobile"  cols="12" sm="6">
             <v-card-title class="justify-center mx-3 ">
-              <img class="w-50"  src="https://cdn.en9doors.com/design/img_sec02_custom2.png">
+              <img class="w-50"  src="https://cdn.investand.com/design/img_sec02_custom2.png">
             </v-card-title>
           </v-col>
         </v-row>
@@ -176,7 +176,7 @@
                :ref="'scroll_section_5'">
           <v-col cols="12" sm="6">
             <v-card-title class="justify-center mx-3 ">
-                <img class="w-50"   src="https://cdn.en9doors.com/design/img_sec02_talk2.png">
+                <img class="w-50"   src="https://cdn.investand.com/design/img_sec02_talk2.png">
             </v-card-title>
           </v-col>
           <v-col cols="12" sm="6">
@@ -236,11 +236,11 @@ export default {
   computed: {
     ...mapGetters(['app','user', 'register','isMobile']),
     mainLogoImg(){
-      return 'https://cdn.en9doors.com/website/logo/en9door' + (this.$vuetify.theme.dark ? '_dark.png' : '.png' );
+      return 'https://cdn.investand.com/website/logo/investand' + (this.$vuetify.theme.dark ? '_dark.png' : '.png' );
     },
-    mainPageTitle1(){return this.app.sysconf.filter(s => s.code === 'en9door_MAIN_PAGE_TITLE_1').map(s => s.value).toString()},
-    mainPageTitle2(){return this.app.sysconf.filter(s => s.code === 'en9door_MAIN_PAGE_TITLE_2').map(s => s.value).toString()},
-    mainPageTitle3(){return this.app.sysconf.filter(s => s.code === 'en9door_MAIN_PAGE_TITLE_3').map(s => s.value).toString()},
+    mainPageTitle1(){return this.app.sysconf.filter(s => s.code === 'investanda_MAIN_PAGE_TITLE_1').map(s => s.value).toString()},
+    mainPageTitle2(){return this.app.sysconf.filter(s => s.code === 'investanda_MAIN_PAGE_TITLE_2').map(s => s.value).toString()},
+    mainPageTitle3(){return this.app.sysconf.filter(s => s.code === 'investanda_MAIN_PAGE_TITLE_3').map(s => s.value).toString()},
 
   },
   created() {
@@ -257,7 +257,7 @@ export default {
   methods: {
     ...mapActions(['nextAnchor', 'prevAnchor']),
     onChrome(){
-      window.location.href = 'googlechrome://en9doors.com'
+      window.location.href = 'googlechrome://investand.com'
     },
     openWindow(link) {
       this.$openWindow(link, 'book')

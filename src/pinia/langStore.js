@@ -2,12 +2,12 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useLangStore = defineStore('useLangStore',() => {
-  const lang = ref('ko');
+  let lang = ref('ko');
 
 
   const getlangType = computed(() => lang.value)
 
-  const setLangType = (langType) => lang = langType
+  const setLangType = (langType) => lang.value = langType
 
 
   return {lang, setLangType, getlangType}

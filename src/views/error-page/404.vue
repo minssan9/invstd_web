@@ -3,15 +3,15 @@
     <div class="wscn-http404">
       <div class="pic-404">
 
-        <img class="pic-404__parent" src="https://cdn.en9doors.com/website/common/404.png" alt="404">
-        <img class="pic-404__child left" src="https://cdn.en9doors.com/website/common/404_cloud.png" alt="404">
-        <img class="pic-404__child mid" src="https://cdn.en9doors.com/website/common/404_cloud.png" alt="404">
-        <img class="pic-404__child right" src="https://cdn.en9doors.com/website/common/404_cloud.png" alt="404">
+        <img class="pic-404__parent" src="https://cdn.investand.com/website/common/404.png" alt="404">
+        <img class="pic-404__child left" src="https://cdn.investand.com/website/common/404_cloud.png" alt="404">
+        <img class="pic-404__child mid" src="https://cdn.investand.com/website/common/404_cloud.png" alt="404">
+        <img class="pic-404__child right" src="https://cdn.investand.com/website/common/404_cloud.png" alt="404">
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">OOPS!</div>
         <div class="bullshit__info">All rights reserved
-          <a style="color:#20a0ff" href="https://en9doors.com" target="_blank">en9doors.com</a>
+          <a style="color:#20a0ff" href="https://investand.com" target="_blank">investand.com</a>
         </div>
         <div class="bullshit__headline">{{ message }}</div>
         <div class="bullshit__info">Please check that the URL you entered is correct, or click the button below to return to the homepage.</div>

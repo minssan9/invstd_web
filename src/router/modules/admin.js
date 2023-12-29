@@ -2,7 +2,7 @@
 
 const adminRouter = [
   // owner
-  // {path: 'owner/board', component: () => import(/* webpackChunkName: "en9door_common" */'./views/owner/o_board'), name: 'Owner Board', meta: {title: 'Owner Board'}},
+  // {path: 'owner/board', component: () => import(/* webpackChunkName: "investanda_common" */'./views/owner/o_board'), name: 'Owner Board', meta: {title: 'Owner Board'}},
 ]
 
 

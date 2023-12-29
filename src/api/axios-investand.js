@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import axios from 'axios'
-import store from './store'
-import router from "./router";
+import store from '@/store'
+import router from "@/router";
 import Cookies from "vue-cookies";
 
 const app = createApp()
@@ -141,38 +141,8 @@ const apiError = {
   },
 }
 
-// export const methods = {
-  // post: (url, data) => {
-  //   return service.post(url, data)
-  //     .then(result => result)
-  //     .catch(err =>  errLogic(err))
-  // },
-  // get: (url, params) => {
-  //   return service.get(url, {
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //       'Content-Type': 'application/json; charset = utf-8'
-  //     }, params: params
-  //   })
-  //     .then(result => result)
-  //     .catch(err => errLogic(err));
-  // },
-  // put: (url, data) => {
-  //   return service.put(url, data)
-  //     .then(result => result)
-  //     .catch(err => errLogic(err));
-  // },
-  // delete: (url) => {
-  //   return service.delete(url)
-  //     .then(result => result)
-  //     .catch(err => errLogic(err));
-  // }
-// }
 export default service
 
 
 app.config.globalProperties.$requestMethod = request
 app.config.globalProperties.$requestFileMethod = requestFile
-// app.config.globalProperties.$postMethod = methods.post
-// app.config.globalProperties.$getMethod = methods.get
-// app.config.globalProperties.$putMethod = methods.put

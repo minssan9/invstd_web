@@ -12,10 +12,16 @@
 <script>
 
 import { Chart } from 'chart.js/auto';
+import { getRelativePosition } from 'chart.js/helpers';
+import {mapStores} from "pinia";
+import {useAppStore} from "@/pinia/appStore";
+import {useLangStore} from "@/pinia/langStore";
 
 export default {
   components: [Chart],
-
+  computed: {
+    ...mapStores(useAppStore, useLangStore)
+  },
   mounted() {
     const data = [
       { year: 2010, count: 10 },
@@ -28,25 +34,29 @@ export default {
     ];
     
     var ctx = this.$refs.lineChart;
-    
     ctx = document.getElementById('lineChart')
-    
 
-    new Chart(
-      ctx,
-      {
-        type: 'bar',
-        data: {
-          labels: data.map(row => row.year),
-          datasets: [
-            {
-              label: 'Acquisitions by year',
-              data: data.map(row => row.count)
-            }
-          ]
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: data.map(row => row.year),
+        datasets: [
+          {
+            label: 'Acquisitions by year',
+            data: data.map(row => row.count)
+          }
+        ]
+      },
+      options: {
+        onClick: (e) => {
+          const canvasPosition = getRelativePosition(e, chart);
+
+          // Substitute the appropriate scale IDs
+          const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
+          const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
         }
       }
-    );
+    });
   }
 }
 
