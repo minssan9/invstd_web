@@ -1,0 +1,29 @@
+
+$primary   : #1976D2
+$secondary : #26A69A
+$accent    : #9C27B0
+
+$dark      : #1D1D1D
+
+$positive  : #21BA45
+$negative  : #C10015
+$info      : #31CCEC
+$warning   : #F2C037
+
+
+.my-sticky-column-table
+  /* specifying max-width so the example can
+    highlight the sticky column on any browser window */
+  width: 90%
+  thead tr:first-child th:first-child
+    /* bg color is important for th; just specify one */
+    background-color: #00b4ff
+
+  td:first-child
+    background-color: #00b4ff
+
+  th:first-child,
+  td:first-child
+    position: sticky
+    left: 0
+    z-index: 1

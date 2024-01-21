@@ -4,26 +4,23 @@ import adminRouter from "@/router/modules/admin";
 import commonRouter from "@/router/modules/common";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('@/views/HomeView.vue')
-    },
-
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('@/views/AboutView.vue'),
+      name: 'MainLayout',
+      component: () => import('@/layout/MainLayout.vue'),
       children: [
+        { path: 'home', name: 'main', component: () => import('@/views/main/main.vue') },
+        { path: 'welcome', name: 'welcome', component: () => import('@/views/main/main-welcome.vue'),},
+        { path: 'subscribe', name: 'subscribe', component: () => import('@/views/main/main-welcome.vue'),},
+        { path: 'about', name: 'about', component: () => import('@/views/main/main-about.vue') },
         ...adminRouter,
+        ...commonRouter
       ]
     },
-    ...commonRouter
+
+
 
     // {
     //   path: '/404',

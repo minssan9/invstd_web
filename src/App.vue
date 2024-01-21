@@ -1,68 +1,36 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import {useQuasar} from "quasar";
+import {watch} from "vue";
+import { RouterView } from 'vue-router'
+import MainLayout from '@/layout/MainLayout.vue'
+
+const $q = useQuasar()
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: light)");
+// get status
+console.log($q.dark.isActive) // true, false
+// get configured status
+console.log($q.dark.mode) // "auto", true, false
+// calling here; equivalent to when component is created
+$q.dark.set(!darkThemeMq.matches)
+watch(() => $q.dark.isActive, val =>
+    console.log(val ? 'On dark mode' : 'On light mode')
+)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="125" height="125" />
-
-    <div class="wrapper">
-      <p>{{ $t('message.hello', { user: '사용자' }) }}</p>
-
-      <HelloWorld msg="You did it!" />
-
-      {{ $t("example") }}
-      <br>
-      {{ web }}
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-    <p>{{$t('message.bye', ['펭수'])}}</p>
-  </header>
-
-  <v-app>
-    <v-row>
-      <v-btn @click="changeLanguage('ko')">Ko</v-btn>
-      <v-btn @click="changeLanguage('en')">En</v-btn>
-    </v-row>
-
-    <RouterView />
-  </v-app>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import {useAppStore} from "./pinia/appStore";
 
 export default {
   name: 'AppVue',
-  data() {
-    return {
-      web: import.meta.env.VITE_APP_WEB,
-      username: '',
-    }
-  },
-  computed: {
-    // ...mapState(appStore)
-  },
-  created() {
-    let langType = navigator.language
-    langType = langType.substring(0, 2)
-    if (langType !== 'ko') langType = 'en' // 한국어가 아닌 경우 무조건 영어로 설정
-
-    this.changeLanguage(langType)
-  },
-  methods:{
-    // ...mapActions(appStore),
-    changeLanguage(langType){
-      const app = useAppStore()
-      app.setLangType(langType)
-      this.$i18n.locale = langType
-
-    }
-  }
+  data() { return { } },
+  computed: { },
+  created() { },
+  methods:{ }
 }
 </script>
 
