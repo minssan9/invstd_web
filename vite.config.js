@@ -36,9 +36,9 @@ export default  defineConfig(({ command, mode }) => {
     server: {
       base: '/',
       port: 8080,
-      public: 'dev.investand.net',
+      public: 'dev.voyagerss.com',
       host: '0.0.0.0',
-      // origin: 'dev.investand.net',
+      // origin: 'dev.voyagerss.com',
       // port: import.meta.env.VITE_APP_WEB_PORT || 8080,
       // origin: import.meta.env.VITE_APP_WEB,
       cors: false,
@@ -54,7 +54,7 @@ export default  defineConfig(({ command, mode }) => {
       proxy: {
         '/api': {
           // target: import.meta.env.VITE_APP_API,
-          target: 'investand.com:24000',
+          target: 'voyagerss.com:24000',
           changeOrigin: true,
           // rewrite: (path) => path.replace(/^\/api/, ''),
           secure: false,

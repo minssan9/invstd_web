@@ -62,7 +62,7 @@ export default {
   mounted() { },
   methods: {
     // onChrome(){
-    //   window.location.href = 'googlechrome://investand.com'
+    //   window.location.href = 'googlechrome://voyagerss.com'
     // },
   }
 }

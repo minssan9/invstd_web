@@ -4,7 +4,10 @@ import NavBar from '@/layout/NavBar.vue'
 </script>
 
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lFf"
+            >
+
+
     <!-- Header -->
     <q-header elevated>
       <q-toolbar>
@@ -16,8 +19,8 @@ import NavBar from '@/layout/NavBar.vue'
           @click="drawer = !drawer"
           icon="menu"
         />
-        <q-toolbar-title>
-          My Quasar App
+        <q-toolbar-title @click="toggleSidebar">
+          Voyagers
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
@@ -26,13 +29,15 @@ import NavBar from '@/layout/NavBar.vue'
     <!-- Drawer -->
     <q-drawer
       v-model="drawer"
-      show-if-above
+      :width="200"
+      overlay
+      on-mouseout=""
       bordered
     >
       <NavBar>
         <q-list>
           <q-item clickable to="/home">
-            <q-item-section >Home</q-item-section>
+            <q-item-section >Voyagers</q-item-section>
           </q-item>
           <q-item clickable to="/welcome">
             <q-item-section>Welcome</q-item-section>
@@ -59,7 +64,7 @@ import NavBar from '@/layout/NavBar.vue'
     </q-drawer>
 
     <!-- Page Content -->
-    <q-page-container>
+    <q-page-container @click="toggleSidebar">
 
       <transition name="fade" mode="out-in"  >
 
@@ -110,6 +115,12 @@ export default {
 
     },
 
+    toggleSidebar(){
+      if (this.drawer === true) this.drawer = false
+    },
+    closeSidebar(){
+      this.drawer = false
+    },
     handleResize() {
       this.resizeWidth()
       this.width = window.innerWidth;

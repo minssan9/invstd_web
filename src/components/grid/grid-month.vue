@@ -11,7 +11,18 @@
       row-key="name"
       flat bordered
 
-    />
+    >
+      <template v-slot:top>
+        <q-btn flat dense color="primary" :disable="loading" label="Add row" @click="addRow" ></q-btn>
+        <q-btn class="on-right" flat dense color="primary" :disable="loading" label="Remove row" @click="removeRow" ></q-btn>
+        <q-space ></q-space>
+        <q-input borderless dense debounce="300" color="primary" v-model="filter">
+          <template v-slot:append>
+            <q-icon name="search" ></q-icon>
+          </template>
+        </q-input>
+      </template>
+    </q-table>
   </div>
 </template>
 <script>
@@ -23,6 +34,10 @@ export default {
   },
   data() {
     return {
+      selected: [],
+      loading: false,
+      filter: '',
+      rowCount: 10,
       columns: [
         { name: 'name', label: 'Name', field: row => row.name, format: val => `${val}`, sortable: true, align: 'center',  sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
         { name: '1', label: '1',   field: row => row.day1 },
@@ -66,6 +81,29 @@ export default {
   unmounted () {},
   mounted() { },
   methods: {
+    addRow () {
+      this.loading = true
+      setTimeout(() => {
+        const
+          index = Math.floor(Math.random() * (this.data.length + 1)),
+          row = this.original[Math.floor(Math.random() * this.original.length)]
+        if (this.data.length === 0) {
+          this.rowCount = 0
+        }
+        row.id = ++this.rowCount
+        const addRow = { ...row } // extend({}, row, { name: `${row.name} (${row.__count})` })
+        this.data = [...this.data.slice(0, index), addRow, ...this.data.slice(index)]
+        this.loading = false
+      }, 500)
+    },
+    removeRow () {
+      this.loading = true
+      setTimeout(() => {
+        const index = Math.floor(Math.random() * this.data.length)
+        this.data = [...this.data.slice(0, index), ...this.data.slice(index + 1)]
+        this.loading = false
+      }, 500)
+    }
   }
 }
 </script>

@@ -15,6 +15,7 @@ const router = createRouter({
         { path: 'welcome', name: 'welcome', component: () => import('@/views/main/main-welcome.vue'),},
         { path: 'subscribe', name: 'subscribe', component: () => import('@/views/main/main-welcome.vue'),},
         { path: 'about', name: 'about', component: () => import('@/views/main/main-about.vue') },
+        { path: 'login', name: 'login', component: () => import('@/views/auth/login.vue') },
         ...adminRouter,
         ...commonRouter
       ]
